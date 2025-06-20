@@ -4,9 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production",
+    "build:dev": "ng build --configuration development",
+    "build:vercel": "ng build --configuration production --output-path=dist/portfolio",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint",
+    "serve:prod": "ng serve --configuration production"
   },
   "private": true,
   "dependencies": {
