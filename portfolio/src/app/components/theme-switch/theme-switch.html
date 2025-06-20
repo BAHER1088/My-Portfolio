@@ -1,0 +1,4 @@
+<button (click)="toggleTheme()" class="theme-toggle-btn"
+  [attr.aria-label]="isLightMode ? 'Switch to Dark Mode' : 'Switch to Light Mode'">
+  <i class="bi" [class.bi-sun-fill]="isLightMode" [class.bi-moon-fill]="!isLightMode"></i>
+</button>

@@ -1,0 +1,147 @@
+/* You can add global styles to this file, and also import other style files */
+
+// SCSS color palette
+$main-color: #0e2f1b;
+$light-bg: #f5deb3;
+$dark-bg: #0e0e0d;
+$accent: #7a2014;
+
+// Additional color variations
+$main-color-light: lighten($main-color, 20%);
+$main-color-dark: darken($main-color, 20%);
+$accent-light: lighten($accent, 20%);
+$accent-dark: darken($accent, 20%);
+
+// Neutral colors
+$white: #ffffff;
+$black: #000000;
+$gray-light: #f8f9fa;
+$gray-medium: #6c757d;
+$gray-dark: #343a40;
+
+// CSS Custom Properties (CSS Variables) for theme switching
+:root {
+  // Base colors
+  --main-color: #{$main-color};
+  --main-color-light: #{$main-color-light};
+  --main-color-dark: #{$main-color-dark};
+  --accent: #{$accent};
+  --accent-light: #{$accent-light};
+  --accent-dark: #{$accent-dark};
+  
+  // Background colors
+  --bg-primary: #{$dark-bg};
+  --bg-secondary: #{lighten($dark-bg, 5%)};
+  --bg-tertiary: #{lighten($dark-bg, 10%)};
+  --bg-overlay: #{rgba($dark-bg, 0.3)};
+  --shadow-overlay: #{rgba($dark-bg, 0.9)};
+  
+  // Text colors
+  --text-primary: #{$light-bg};
+  --text-secondary: #{darken($light-bg, 20%)};
+  --text-muted: #{darken($light-bg, 40%)};
+  
+  // Border colors
+  --border-color: #{rgba($light-bg, 0.1)};
+  --border-color-hover: #{rgba($light-bg, 0.2)};
+  
+  // Status colors
+  --success: #28a745;
+  --warning: #ffc107;
+  --error: #dc3545;
+  --info: #17a2b8;
+
+  --always-light: #{$light-bg}; // This will always be #f5deb3
+
+}
+
+// Light theme variables
+[data-theme="light"] {
+  --bg-primary: #{$light-bg};
+  --bg-secondary: #{darken($light-bg, 5%)};
+  --bg-tertiary: #{darken($light-bg, 10%)};
+  --bg-overlay: #{rgba($light-bg, 0.3)};
+  --shadow-overlay: #{ rgba($light-bg, 0.9)};
+  
+  --text-primary: #{$dark-bg};
+  --text-secondary: #{lighten($dark-bg, 20%)};
+  --text-muted: #{lighten($dark-bg, 40%)};
+  
+  --border-color: #{rgba($dark-bg, 0.1)};
+  --border-color-hover: #{rgba($dark-bg, 0.2)};
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Global body styles
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Chakra Petch', sans-serif;
+  line-height: 1.6;
+}
+
+// Utility classes for common color usage
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-tertiary { background-color: var(--bg-tertiary); }
+.bg-main { background-color: var(--main-color); }
+.bg-accent { background-color: var(--accent); }
+
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.text-main { color: var(--main-color); }
+.text-accent { color: var(--accent); }
+
+.border-color { border-color: var(--border-color); }
+.border-color-hover { border-color: var(--border-color-hover); }
+
+
+
+
+
+
+/* Firefox (uncomment to work in Firefox, although other properties will not work!)  */
+/** {
+  scrollbar-width: thin;
+  scrollbar-color: #AB3020 #0E2F1B;
+}*/
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  height: 11px;
+  width: 11px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 0px;
+  background-color: var(--bg-primary);
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: var(--bg-primary);
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: var(--bg-primary);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 2px solid var(--accent);
+  background-color: #0e2f1b;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #0e2f1b;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #0e2f1b;
+}

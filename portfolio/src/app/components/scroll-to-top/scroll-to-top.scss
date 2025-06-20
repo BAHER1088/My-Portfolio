@@ -1,0 +1,60 @@
+.scroll-to-top-btn {
+    position: fixed;
+    top: 2rem;
+    left: 1rem;
+    // right: 100rem;
+    z-index: 1001;
+    width: 80px;
+    height: 80px;
+    // border: 2px solid var(--border-color);
+    // border-radius: 50%;
+    // background-color: var(--bg-overlay);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 1.2rem;
+    // transition:linear 5.9s ease-in;
+    // transition: all 2s ease-in-out;
+    animation: scroll-bounce .5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    // backdrop-filter: blur(10px);
+    background-color: var(--bg-overlay);
+    -webkit-backdrop-filter: blur(100px);
+    backdrop-filter: blur(0.5rem);
+    padding: 15px 30px;
+    border-radius: 40px;
+    border: 1px solid var(--border-color);
+
+    &:hover {
+        background-color: var(--bg-tertiary);
+        border-color: var(--border-color-hover);
+        transform: scale(0.9);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    i {
+        transition: transform 0.3s ease;
+        transform: rotate(0deg) scale(1.5);
+    }
+
+    &:hover i {
+        transform: rotate(360deg) scale(2);
+    }
+}
+
+@keyframes scroll-bounce {
+    0%{
+        opacity: 0;
+        transform: rotate(180deg);
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
