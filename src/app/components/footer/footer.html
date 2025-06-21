@@ -20,7 +20,7 @@
             </a>
         </div>
         <div class="form">
-            <form action="">
+            <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
                 <div id="poda">
                     <div class="glow"></div>
                     <div class="darkBorderBg"></div>
@@ -32,8 +32,9 @@
                     <div class="border"></div>
 
                     <div id="main">
-                        <input placeholder="Name" type="text" name="text" class="input" />
-                        <div id="input-mask"></div>
+                        <input placeholder="Name" type="text" name="name" class="input" [(ngModel)]="formData.name"
+                            required />
+                        <!-- <div id="input-mask"></div> -->
                         <div id="pink-mask"></div>
                     </div>
                 </div>
@@ -48,8 +49,9 @@
                     <div class="border"></div>
 
                     <div id="main">
-                        <input placeholder="Email" type="text" name="text" class="input" />
-                        <div id="input-mask"></div>
+                        <input placeholder="Email" type="email" name="email" class="input" [(ngModel)]="formData.email"
+                            required />
+                        <!-- <div id="input-mask"></div> -->
                         <div id="pink-mask"></div>
                     </div>
                 </div>
@@ -64,8 +66,9 @@
                     <div class="border"></div>
 
                     <div id="main">
-                        <input placeholder="Subject" type="text" name="text" class="input" />
-                        <div id="input-mask"></div>
+                        <input placeholder="Subject" type="text" name="subject" class="input"
+                            [(ngModel)]="formData.subject" required />
+                        <!-- <div id="input-mask"></div> -->
                         <div id="pink-mask"></div>
                     </div>
                 </div>
@@ -80,12 +83,35 @@
                     <div class="border"></div>
 
                     <div id="main">
-                        <textarea placeholder="Message" name="text" class="input"></textarea>
-                        <div id="input-mask"></div>
+                        <textarea placeholder="Message" name="message" class="input" [(ngModel)]="formData.message"
+                            required></textarea>
+                        <!-- <div id="input-mask"></div> -->
                         <div id="pink-mask"></div>
                     </div>
                 </div>
-                <button type="submit" class="btn">Send Message</button>
+
+                <!-- @if (submitStatus !== 'idle') { -->
+                <!-- Status Messages -->
+                @if (submitStatus === 'success') {
+                <div class="status-message success">
+                    Message sent successfully! Thank you for contacting me.
+                </div>
+                }
+                @if (submitStatus === 'error') {
+                <div class="status-message error">
+                    Failed to send message. Please try again later.
+                </div>
+                }
+                <!-- } -->
+
+                <button type="submit" class="btn" [disabled]="isLoading || !contactForm.form.valid">
+                    @if (!isLoading) {
+                    <span>Send Message</span>
+                    }
+                    @if (isLoading) {
+                    <span>Sending...</span>
+                    }
+                </button>
             </form>
         </div>
     </div>
